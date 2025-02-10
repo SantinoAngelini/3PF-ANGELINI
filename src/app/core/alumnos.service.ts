@@ -9,7 +9,7 @@ import { alumno } from '../interfaces/alumno';
 export class AlumnosService {
   private alumnos: alumno[] = [
     { id: this.generateRandomId(), nombre: 'Kevin', apellido: 'Davezac' },
-    { id: this.generateRandomId(), nombre: 'Santutu', apellido: 'Angelini' },
+    { id: this.generateRandomId(), nombre: 'Santino', apellido: 'Angelini' },
     { id: this.generateRandomId(), nombre: 'Franco', apellido: 'Angelini' },
     { id: this.generateRandomId(), nombre: 'Roxana', apellido: 'Tell' },
     { id: this.generateRandomId(), nombre: 'Jorge', apellido: 'Corona' },
