@@ -1,0 +1,16 @@
+<mat-drawer-container class="sidenav-container">
+    <mat-drawer #sidenav mode="side" opened>
+      <mat-nav-list>
+
+        <a routerLink="home" mat-list-item > Inicio </a>
+        <a routerLink="alumnos" mat-list-item > Estudiantes </a>
+        <a routerLink="cursos" mat-list-item > Cursos </a>
+        <a routerLink="usuarios" mat-list-item > Usuarios </a>
+    
+    </mat-nav-list>
+    </mat-drawer>
+    <app-toolbar (drawerToggle)="sidenav.toggle()"></app-toolbar>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>

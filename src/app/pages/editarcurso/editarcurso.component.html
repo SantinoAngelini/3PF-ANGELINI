@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>{{ data ? 'Editar Curso' : 'Nuevo Curso' }}</h1>
+<div mat-dialog-content>
+  <form #cursoForm="ngForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre del curso</mat-label>
+      <input matInput [(ngModel)]="curso.nombre" name="nombre" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <input matInput [(ngModel)]="curso.descripcion" name="descripcion" required />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancelar</button>
+    <button mat-button [disabled]="cursoForm.invalid" (click)="onSave()">Guardar</button>
+  </div>
