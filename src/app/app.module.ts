@@ -25,6 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CursosComponent } from './pages/cursos/cursos.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { editarcursoComponent } from './pages/editarcurso/editarcurso.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { editarcursoComponent } from './pages/editarcurso/editarcurso.component'
     HomeComponent,
     CursosComponent,
     UsuariosComponent,
-    editarcursoComponent
+    editarcursoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

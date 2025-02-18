@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CursosComponent } from './pages/cursos/cursos.component';
-import { HomeComponent } from './pages/home/home.component';
-import { UsuariosComponent } from './pages/usuarios/usuarios.component';
-import { ListaAlumnosComponent } from './pages/alumnos/lista-alumnos/lista-alumnos.component';
+import { AuthGuard } from './auth/auth-guard.guard';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'alumnos', component: ListaAlumnosComponent },
-  { path: 'cursos', component: CursosComponent },
-  { path: 'usuarios', component: UsuariosComponent },
-
+  { path: 'login', component: LoginComponent },
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
+  { path: 'alumnos', loadChildren: () => import('./pages/alumnos/lista-alumnos/lista-alumnos.module').then(m => m.ListaAlumnosModule), canActivate: [AuthGuard]  },
+  { path: 'cursos', loadChildren: () => import('./pages/cursos/cursos.module').then(m => m.CursosModule), canActivate: [AuthGuard]  },
+  { path: 'usuarios', loadChildren: () => import('./pages/usuarios/usuarios.module').then(m => m.UsuariosModule), canActivate: [AuthGuard]  },
 ];
 
 @NgModule({
