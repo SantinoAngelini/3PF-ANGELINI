@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private router: Router) {}
 
   login(username: string, password: string): boolean {
-    if (username === 'user' && password === 'password') {
+    if (username === '' && password === '') {
       localStorage.setItem('token', 'fake-jwt-token');
       this.loggedIn.next(true);
       return true;

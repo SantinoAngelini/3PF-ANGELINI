@@ -25,9 +25,11 @@ export class ListaAlumnosComponent {
     });
   }
 
-  onDelete(id: number): void {
+  onDelete(id: string): void {
     if (confirm('¿Está seguro de que desea eliminar este alumno?')) {
-      this.alumnosService.eliminarAlumno(id);
+      this.alumnosService.eliminarAlumno(id).subscribe(alumno=> {
+        this.dataSource = alumno;
+      });
     }
   }
 
@@ -37,18 +39,24 @@ export class ListaAlumnosComponent {
       .afterClosed()
       .subscribe(valorFormulario => {
         if (valorFormulario) {
-          this.alumnosService.editarAlumno({ ...alumno, ...valorFormulario });
+          const alumnoEditado = { ...alumno, ...valorFormulario };
+          console.log('alumno editado:', alumnoEditado);
+          this.alumnosService.editarAlumno(alumnoEditado).subscribe(alumnos => {
+            this.dataSource = alumnos;
+          });
         }
       });
   }
 
   onCreateStudent(): void {
     this.matDialog
-      .open(ListaAlumnosComponent)
+      .open(DialogFormComponent)
       .afterClosed()
       .subscribe(valorFormulario => {
         if (valorFormulario) {
-          this.alumnosService.agregarAlumno(valorFormulario);
+          this.alumnosService.agregarAlumno(valorFormulario).subscribe(alumno=> {
+            this.dataSource = alumno;
+          });
         }
       });
   }

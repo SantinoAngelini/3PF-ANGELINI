@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Asegúrate de importar BrowserAnimationsModule
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,8 @@ import { CursosComponent } from './pages/cursos/cursos.component';
 import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 import { editarcursoComponent } from './pages/editarcurso/editarcurso.component';
 import { LoginComponent } from './login/login.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { LoginComponent } from './login/login.component';
     UsuariosComponent,
     editarcursoComponent,
     LoginComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -57,10 +60,12 @@ import { LoginComponent } from './login/login.component';
     MatFormFieldModule,
     MatInputModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //HttpClientModule
+    
      
   ],
-  providers: [],
+  providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

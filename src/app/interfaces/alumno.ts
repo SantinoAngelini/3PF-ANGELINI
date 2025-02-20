@@ -1,5 +1,5 @@
 export interface alumno {
-    id: number;
+    id: string;
     nombre: string;
     apellido: string;
   }
